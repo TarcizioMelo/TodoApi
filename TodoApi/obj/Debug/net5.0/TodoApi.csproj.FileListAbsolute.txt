@@ -134,3 +134,5 @@ C:\Users\tarci\source\repos\TodoApi\TodoApi\bin\Debug\net5.0\runtimes\win-arm\li
 C:\Users\tarci\source\repos\TodoApi\TodoApi\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\tarci\source\repos\TodoApi\TodoApi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\tarci\source\repos\TodoApi\TodoApi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\tarci\source\repos\TodoApi\TodoApi\bin\Debug\net5.0\System.Net.Http.Formatting.dll
+C:\Users\tarci\source\repos\TodoApi\TodoApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
