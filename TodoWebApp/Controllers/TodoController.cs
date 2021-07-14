@@ -31,7 +31,7 @@ namespace TodoWebApp.Controllers
                 else
                 {
                     item = Enumerable.Empty<TodoItem>();
-                    ModelState.AddModelError(string.Empty, "Server Error");
+                    ModelState.AddModelError(string.Empty, "Server Error!");
                     
                 }
 
@@ -39,5 +39,32 @@ namespace TodoWebApp.Controllers
             }
             return View(item);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Create(TodoItem item)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44331/api/TodoItems");
+                var postjob = client.PostAsJsonAsync<TodoItem>("item", item);
+                postjob.Wait();
+
+                var postRestult = postjob.Result;
+                if (postRestult.IsSuccessStatusCode)
+                    return RedirectToAction("Index");
+            }
+            ModelState.AddModelError(string.Empty, "Server Error!");
+
+            return View(item);
+        }
+
+
+
+        }
     }
-}
