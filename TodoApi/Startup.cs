@@ -28,8 +28,12 @@ namespace TodoApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt =>
-                                               opt.UseInMemoryDatabase("TodoList"));
+            string mySqlConnection = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContextPool<TodoContext>(options => 
+                                                   options.UseMySql(mySqlConnection, 
+                                                                    ServerVersion.AutoDetect(mySqlConnection)));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
