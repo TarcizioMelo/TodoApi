@@ -52,7 +52,7 @@ namespace TodoWebApp.Controllers
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://localhost:44331/api/TodoItems");
-                var postjob = client.PostAsJsonAsync<TodoItem>("item", item);
+                var postjob = client.PostAsJsonAsync<TodoItem>("TodoItems", item);
                 postjob.Wait();
 
                 var postRestult = postjob.Result;
