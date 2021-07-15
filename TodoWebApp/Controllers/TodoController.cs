@@ -23,9 +23,9 @@ namespace TodoWebApp.Controllers
                 Console.WriteLine(result);
                 if (result.IsSuccessStatusCode)
                 {
-                    var ReadJob = result.Content.ReadAsAsync<IList<TodoItem>>();
-                    ReadJob.Wait();
-                    item = ReadJob.Result;
+                    var readJob = result.Content.ReadAsAsync<IList<TodoItem>>();
+                    readJob.Wait();
+                    item = readJob.Result;
 
                 }
                 else
@@ -63,6 +63,63 @@ namespace TodoWebApp.Controllers
 
             return View(item);
         }
+
+        public ActionResult Edit(int id)
+        {
+            
+            TodoItem item = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44331/api/");
+                var responseTask = client.GetAsync("TodoItems/" + id);
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if(result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<TodoItem>();
+                    item = readTask.Result;
+                }
+            }
+
+            return View(item);
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(TodoItem item)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44331/api/TodoItems");
+                var putTask = client.PutAsJsonAsync<TodoItem>("TodoItems", item);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                    return RedirectToAction("Index");
+                return View(item);
+            }
+        
+        }
+
+        public ActionResult Delete(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44331/api/");
+                var deleteTask = client.DeleteAsync("TodoItems/" + id);
+
+                var result = deleteTask.Result;
+                if (result.IsSuccessStatusCode)
+                    return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
+
 
 
 

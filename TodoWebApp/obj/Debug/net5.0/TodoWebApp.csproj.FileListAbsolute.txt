@@ -118,3 +118,4 @@ C:\Users\tarci\source\repos\TodoApi\TodoWebApp\bin\Debug\net5.0\runtimes\win-arm
 C:\Users\tarci\source\repos\TodoApi\TodoWebApp\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\tarci\source\repos\TodoApi\TodoWebApp\obj\Debug\net5.0\Razor\Views\Todo\Index.cshtml.g.cs
 C:\Users\tarci\source\repos\TodoApi\TodoWebApp\obj\Debug\net5.0\Razor\Views\Todo\Create.cshtml.g.cs
+C:\Users\tarci\source\repos\TodoApi\TodoWebApp\obj\Debug\net5.0\Razor\Views\Todo\Edit.cshtml.g.cs
