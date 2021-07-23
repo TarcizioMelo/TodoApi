@@ -23,21 +23,46 @@ namespace TodoWebApp.Controllers
                 Console.WriteLine(result);
                 if (result.IsSuccessStatusCode)
                 {
-                    var ReadJob = result.Content.ReadAsAsync<IList<TodoItem>>();
-                    ReadJob.Wait();
-                    item = ReadJob.Result;
+                    var readJob = result.Content.ReadAsAsync<IList<TodoItem>>();
+                    readJob.Wait();
+                    item = readJob.Result;
 
                 }
                 else
                 {
                     item = Enumerable.Empty<TodoItem>();
-                    ModelState.AddModelError(string.Empty, "Server Error");
-                    
+                    ModelState.AddModelError(string.Empty, "Server Error!");
+
                 }
 
-            
+
             }
             return View(item);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Create(TodoItem item)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44331/api/TodoItems");
+                var postjob = client.PostAsJsonAsync<TodoItem>("TodoItems", item);
+                postjob.Wait();
+
+                var postRestult = postjob.Result;
+                if (postRestult.IsSuccessStatusCode)
+                    return RedirectToAction("Index");
+            }
+            ModelState.AddModelError(string.Empty, "Server Error!");
+
+            return View(item);
+        }
+        
+        }
     }
-}
