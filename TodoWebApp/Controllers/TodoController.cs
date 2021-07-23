@@ -32,10 +32,10 @@ namespace TodoWebApp.Controllers
                 {
                     item = Enumerable.Empty<TodoItem>();
                     ModelState.AddModelError(string.Empty, "Server Error!");
-                    
+
                 }
 
-            
+
             }
             return View(item);
         }
@@ -63,8 +63,9 @@ namespace TodoWebApp.Controllers
 
             return View(item);
         }
-
-        public ActionResult Edit(int id)
+        
+        
+        public ActionResult Edit(int Id)
         {
             
             TodoItem item = null;
@@ -72,7 +73,7 @@ namespace TodoWebApp.Controllers
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://localhost:44331/api/");
-                var responseTask = client.GetAsync("TodoItems/" + id);
+                var responseTask = client.GetAsync("TodoItems/" + Id.ToString());
                 responseTask.Wait();
 
                 var result = responseTask.Result;
@@ -104,13 +105,13 @@ namespace TodoWebApp.Controllers
             }
         
         }
-
+       
         public ActionResult Delete(int id)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://localhost:44331/api/");
-                var deleteTask = client.DeleteAsync("TodoItems/" + id);
+                var deleteTask = client.DeleteAsync("TodoItems/" + id.ToString());
 
                 var result = deleteTask.Result;
                 if (result.IsSuccessStatusCode)
