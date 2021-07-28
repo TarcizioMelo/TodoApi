@@ -6291,26 +6291,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tarci\\.nuget\\packages\\": {}
+    "C:\\Users\\willi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tarci\\source\\repos\\TodoApi\\TodoWebApp\\TodoWebApp.csproj",
+      "projectUniqueName": "c:\\source\\TodoApi\\TodoWebApp\\TodoWebApp.csproj",
       "projectName": "TodoWebApp",
-      "projectPath": "C:\\Users\\tarci\\source\\repos\\TodoApi\\TodoWebApp\\TodoWebApp.csproj",
-      "packagesPath": "C:\\Users\\tarci\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tarci\\source\\repos\\TodoApi\\TodoWebApp\\obj\\",
+      "projectPath": "c:\\source\\TodoApi\\TodoWebApp\\TodoWebApp.csproj",
+      "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
+      "outputPath": "c:\\source\\TodoApi\\TodoWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tarci\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6356,7 +6354,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
